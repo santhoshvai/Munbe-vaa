@@ -5,7 +5,7 @@ var main = function () {
   var inProgress = false;
   var soundID = "Amazon-Sample";
   // load sound
-  createjs.Sound.registerSound("media/Amazon-Sample.mp3", soundID);
+  createjs.Sound.registerSound("Media/Amazon-Sample.mp3", soundID);
   function playSound () {
     createjs.Sound.play(soundID);
   }
