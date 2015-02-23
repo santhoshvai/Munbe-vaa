@@ -8,13 +8,22 @@
 
 body {
 	font-size: 100%;
-	color: #3E585F;
+	color: #EAD075;
 	text-align: center;
 	background-color: #47374E;
 	font-family: "PT Sans",sans-serif;
 }
 header {
     text-align: center;
+}
+a {
+	color: #BEF2A7;
+	text-decoration: none;
+}
+/* `:focus` is linked to `:hover` for basic accessibility */
+a:hover,
+a:focus {
+  	text-decoration: underline;
 }
 .container {
   width: 95%;
@@ -57,7 +66,7 @@ button:hover {
 
 h2.language {
 	display: none;
-	color: #3E585F;
+	color: #EAD075;
 	font-weight: bold;
 }
 
@@ -72,7 +81,15 @@ div.english {
 	color: #fff;
 	display: none;
 }
-
+#playBtnDiv {
+	/*background: #cd4436;
+	height: 200px;
+	margin: 20px auto;
+	width: 300px;
+	box-shadow: inset 0 0 7px rgba(0,0,0,0.7);*/
+	position: relative;
+	opacity: 1;
+}
 /* Small-Tablets */
 /*@media (min-width: 35.5em) {
 
@@ -120,4 +137,51 @@ div.english {
 .la-anim-12.la-animate::before {
   width: 100%;
   transition: width 33s linear;
+}
+
+.share-container {
+	position: relative;
+	padding: 0 0 25px;
+}
+@media screen and (max-width: 320px) {
+	.share-container {
+		padding: 0 0 12px
+	}
+}
+
+/*social share*/
+footer {
+		/*background-color: #333;*/
+		width: 100%;
+		bottom: 0;
+		padding:1em;
+		position: fixed;
+	}
+.share-container {
+	opacity:0;  /* make things invisible upon start */
+}
+
+.share-container .label {
+	color: #777;
+	display: block;
+	float: left;
+	font-size: 14px;
+	padding: 10px 0 0;
+	width: 115px
+}
+@media screen and (max-width: 400px) {
+	.share-container .label {
+		display: none
+	}
+}
+.share-container .rrssb-buttons {
+	float: left;
+	width: calc(100% - 116px)
+}
+@media screen and (max-width: 400px) {
+	.share-container .rrssb-buttons {
+		width: 100%;
+		float: none;
+		clear: both
+	}
 }
