@@ -16,7 +16,7 @@ function whichAnimationEvent(){
     }
   }
 
-  function whichTransitionEvent(){
+function whichTransitionEvent(){
     var t,
         el = document.createElement("fakeelement");
 
@@ -49,60 +49,14 @@ function loadAudio(path, src) {
         alert('Sorry! Cannot play audio via HTML5 in your browser, upgrade to a new browser');
     }
 }
-function playAudio(audioInstance) {
-    audioInstance.play();
-}
-var main = function () {
-    $('.playBtn').hide();
-    var audio =  new Howl({
-        urls: ['Media/Amazon-Sample.mp3', 'Media/Amazon-Sample.ogg', 'Media/Amazon-Sample.wav'],
-        onload: function () {
-            $('.playBtn').show();
-        },
-        onend: function() {
-          document.title = document.title.slice(2);
-          $('.share-container').addClass('fadeInRight'); // show the share button
-          $('#shopDiv').addClass('fadeInLeft');
-          console.log('Finished!');
-        }
-      });
-  var playIcon = '\u25B6 ';
-  var playBtn  = $('.playBtn');
-  var munbeVaaElem = $('.la-anim-12');
-  var shareElem = $('.share-container');
-  var inProgress = false;
-  // var audio = loadAudio('Media/', 'Amazon-Sample.mp3');
 
-  // https://jonsuh.com/blog/detect-the-end-of-css-animations-and-transitions-with-javascript/
-    var animationEvent = whichAnimationEvent();
-    var transitionEvent = whichTransitionEvent();
-  // DETECT TRANSITION END
-
-  playBtn.click(function() {
-    if( inProgress ) return false;
-    audio.play();
-    inProgress = true;
-    // play the mp3
-    // var samp = blip.clip().sample('samp');
-    // samp.play(0);
-    // mp3 end
-    // document.getElementById('audio').play();
+function onStartPlay() {
+    var playIcon = '\u25B6 ';
+    var munbeVaaElem = $('.la-anim-12');
     document.title = playIcon + document.title; // like youtube title
-    inProgress = true;
     $('#playBtnDiv').addClass('flipOutX');
     $("#playBtnDiv").fadeOut( "fast" ); // incase the before the animation fails
     munbeVaaElem.addClass('la-animate');
-    /* reset page after the sound has finished */
-    // execute given function after the transition completes
-    munbeVaaElem.one(transitionEvent,
-      function(e) {
-        // munbeVaaElem.removeClass( 'la-animate' );
-        document.title = document.title.slice(2);
-        shareElem.addClass('fadeInRight'); // show the share button
-        $('#shopDiv').addClass('fadeInLeft');
-        inProgress = false;
-    });
-    // shareElem.addClass('fadeInRight'); // show the share button
     $(".language").addClass('anim lang');
     var arr = ['one', 'two', 'three', 'four', 'five', 'six', 'seven'];
     for ( var i = 0; i <= 6; i+=1 ) {
@@ -112,6 +66,37 @@ var main = function () {
       var nextVerse = $(".lyric" + nxtIdx);
       currentVerse.addClass('anim ' + arr[i]);
      }
+}
+var main = function () {
+    $('.playBtn').hide();
+    var audio =  new Howl({
+        urls: ['Media/Amazon-Sample.mp3', 'Media/Amazon-Sample.ogg', 'Media/Amazon-Sample.wav'],
+        onload: function () {
+            $('.playBtn').show();
+            console.log('loaded-Music!');
+        },
+        onplay: function () {
+            console.log('started-play!');
+            onStartPlay();
+        },
+        onend: function() {
+          document.title = document.title.slice(2);
+          $('.share-container').addClass('fadeInRight'); // show the share button
+          $('#shopDiv').addClass('fadeInLeft');
+          console.log('Finished!');
+        }
+      });
+  var playBtn  = $('.playBtn');
+
+  // var audio = loadAudio('Media/', 'Amazon-Sample.mp3');
+
+  // https://jonsuh.com/blog/detect-the-end-of-css-animations-and-transitions-with-javascript/
+    var animationEvent = whichAnimationEvent();
+    var transitionEvent = whichTransitionEvent();
+  // DETECT TRANSITION END
+
+  playBtn.click(function() {
+    audio.play();
   });
 }
 
