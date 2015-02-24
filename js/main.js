@@ -22,7 +22,13 @@ var main = function () {
   var munbeVaaElem = $('.la-anim-12');
   var shareElem = $('.share-container');
   var inProgress = false;
-  var audio = loadAudio('Media/', 'Amazon-Sample.mp3');
+  // var audio = loadAudio('Media/', 'Amazon-Sample.mp3');
+  var audio =  new Howl({
+      urls: ['Media/Amazon-Sample.mp3', 'Media/Amazon-Sample.ogg', 'Media/Amazon-Sample.wav'],
+      onend: function() {
+        console.log('Finished!');
+      }
+    });
   // http://jshanley.github.io/blip/ // For mp3
     //   blip.sampleLoader()
     //     .samples({
