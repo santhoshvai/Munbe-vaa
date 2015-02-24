@@ -1,3 +1,33 @@
+function playAudio(path, src) {
+
+    if ( typeof Audio != "undefined") {
+
+        var audioUrl = path + src;
+
+        var audio = new Audio();
+        audio.src = audioUrl;
+        audio.type = 'audio/x-wav';
+
+        audio.addEventListener('error', function() {
+            alert('Audio error: ' + audioUrl + '; ' + JSON.stringify(audio.error));
+        });
+
+        audio.addEventListener('play', function() {
+        });
+
+        audio.addEventListener('ended', function() {
+            $('.share-container').addClass('fadeInRight'); // show the share button
+            $('#shopDiv').addClass('fadeInLeft');
+        });
+
+        audio.addEventListener('canplay', function() {
+            audio.play();
+        });
+        audio.play();
+    } else {
+        alert('Sorry! Cannot play audio via HTML5 in your browser, upgrade to a new browser');
+    }
+}
 var main = function () {
   var playIcon = '\u25B6 ';
   var playBtn  = $('.playBtn');
@@ -5,12 +35,14 @@ var main = function () {
   var shareElem = $('.share-container');
   var inProgress = false;
   // http://jshanley.github.io/blip/ // For mp3
-      blip.sampleLoader()
-        .samples({
-        //'samp': 'Media/Amazon-Sample.mp3'
-        'samp' : 'https://cdn.rawgit.com/santhoshvai/Munbe-vaa/gh-pages/Media/Amazon-Sample.mp3'
-    })
-        .load();
+    //   blip.sampleLoader()
+    //     .samples({
+    //     //'samp': 'Media/Amazon-Sample.mp3'
+    //     'samp' : 'http://www.santhosh.info/Munbe-vaa/Media/Amazon-Sample.mp3'
+    // })
+    //     .load();
+
+
   // https://jonsuh.com/blog/detect-the-end-of-css-animations-and-transitions-with-javascript/
   function whichAnimationEvent(){
       var t,
@@ -54,9 +86,11 @@ var main = function () {
   // DETECT TRANSITION END
   playBtn.click(function() {
     if( inProgress ) return false;
+    playAudio('Media/', 'Amazon-Sample.wav');
+    inProgress = true;
     // play the mp3
-    var samp = blip.clip().sample('samp');
-    samp.play(0);
+    // var samp = blip.clip().sample('samp');
+    // samp.play(0);
     // mp3 end
     // document.getElementById('audio').play();
     document.title = playIcon + document.title; // like youtube title
