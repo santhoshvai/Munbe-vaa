@@ -62,27 +62,22 @@ var main = function () {
     // execute given function after the transition completes
     munbeVaaElem.one(transitionEvent,
       function(e) {
-        munbeVaaElem.removeClass( 'la-animate' );
+        // munbeVaaElem.removeClass( 'la-animate' );
         document.title = document.title.slice(2);
+        shareElem.addClass('fadeInRight'); // show the share button
+        $('#shopDiv').addClass('fadeInLeft');
         inProgress = false;
     });
     playSound();
-    shareElem.addClass('fadeInRight'); // show the share button
+    // shareElem.addClass('fadeInRight'); // show the share button
     $(".language").addClass('anim lang');
-    var arr = ['one', 'two', 'three', 'four', 'five'];
-    for ( var i = 0; i <= 1; i+=1 ) {
+    var arr = ['one', 'two', 'three', 'four', 'five', 'six', 'seven'];
+    for ( var i = 0; i <= 6; i+=1 ) {
       var idx = i+1;
       var nxtIdx = i+2;
       var currentVerse = $(".lyric" + idx);
       var nextVerse = $(".lyric" + nxtIdx);
       currentVerse.addClass('anim ' + arr[i]);
-    //   currentVerse.one(animationEvent,
-    //       function(event) {
-    //             // currentVerse.removeClass('anim ' + arr[i]);
-    //             nextVerse.addClass('anim ' + arr[i+1]);
-    //             $('.la-anim-12').append('<p>Animation complete</p>');
-    //         });
-
      }
   });
 }
