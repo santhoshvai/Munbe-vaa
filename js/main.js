@@ -1,3 +1,39 @@
+function whichAnimationEvent(){
+    var t,
+        el = document.createElement("fakeelement");
+
+    var animations = {
+      "animation"      : "animationend",
+      "OAnimation"     : "oAnimationEnd",
+      "MozAnimation"   : "animationend",
+      "WebkitAnimation": "webkitAnimationEnd"
+    }
+
+    for (t in animations){
+      if (el.style[t] !== undefined){
+        return animations[t];
+      }
+    }
+  }
+
+  function whichTransitionEvent(){
+    var t,
+        el = document.createElement("fakeelement");
+
+    var transitions = {
+      "transition"      : "transitionend",
+      "OTransition"     : "oTransitionEnd",
+      "MozTransition"   : "transitionend",
+      "WebkitTransition": "webkitTransitionEnd"
+    }
+
+    for (t in transitions){
+      if (el.style[t] !== undefined){
+        return transitions[t];
+      }
+    }
+  }
+
 function loadAudio(path, src) {
     if ( typeof Audio != "undefined") {
 
@@ -17,68 +53,31 @@ function playAudio(audioInstance) {
     audioInstance.play();
 }
 var main = function () {
+    $('.playBtn').hide();
+    var audio =  new Howl({
+        urls: ['Media/Amazon-Sample.mp3', 'Media/Amazon-Sample.ogg', 'Media/Amazon-Sample.wav'],
+        onload: function () {
+            $('.playBtn').show();
+        },
+        onend: function() {
+          document.title = document.title.slice(2);
+          $('.share-container').addClass('fadeInRight'); // show the share button
+          $('#shopDiv').addClass('fadeInLeft');
+          console.log('Finished!');
+        }
+      });
   var playIcon = '\u25B6 ';
   var playBtn  = $('.playBtn');
   var munbeVaaElem = $('.la-anim-12');
   var shareElem = $('.share-container');
   var inProgress = false;
   // var audio = loadAudio('Media/', 'Amazon-Sample.mp3');
-  var audio =  new Howl({
-      urls: ['Media/Amazon-Sample.mp3', 'Media/Amazon-Sample.ogg', 'Media/Amazon-Sample.wav'],
-      onend: function() {
-        console.log('Finished!');
-      }
-    });
-  // http://jshanley.github.io/blip/ // For mp3
-    //   blip.sampleLoader()
-    //     .samples({
-    //     //'samp': 'Media/Amazon-Sample.mp3'
-    //     'samp' : 'http://www.santhosh.info/Munbe-vaa/Media/Amazon-Sample.mp3'
-    // })
-    //     .load();
-
 
   // https://jonsuh.com/blog/detect-the-end-of-css-animations-and-transitions-with-javascript/
-  function whichAnimationEvent(){
-      var t,
-          el = document.createElement("fakeelement");
-
-      var animations = {
-        "animation"      : "animationend",
-        "OAnimation"     : "oAnimationEnd",
-        "MozAnimation"   : "animationend",
-        "WebkitAnimation": "webkitAnimationEnd"
-      }
-
-      for (t in animations){
-        if (el.style[t] !== undefined){
-          return animations[t];
-        }
-      }
-    }
-
     var animationEvent = whichAnimationEvent();
-
-    function whichTransitionEvent(){
-      var t,
-          el = document.createElement("fakeelement");
-
-      var transitions = {
-        "transition"      : "transitionend",
-        "OTransition"     : "oTransitionEnd",
-        "MozTransition"   : "transitionend",
-        "WebkitTransition": "webkitTransitionEnd"
-      }
-
-      for (t in transitions){
-        if (el.style[t] !== undefined){
-          return transitions[t];
-        }
-      }
-    }
-
     var transitionEvent = whichTransitionEvent();
   // DETECT TRANSITION END
+
   playBtn.click(function() {
     if( inProgress ) return false;
     audio.play();
@@ -91,7 +90,7 @@ var main = function () {
     document.title = playIcon + document.title; // like youtube title
     inProgress = true;
     $('#playBtnDiv').addClass('flipOutX');
-    $("#playBtnDiv").fadeOut( "fast" );
+    $("#playBtnDiv").fadeOut( "fast" ); // incase the before the animation fails
     munbeVaaElem.addClass('la-animate');
     /* reset page after the sound has finished */
     // execute given function after the transition completes
