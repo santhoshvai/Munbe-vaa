@@ -5,59 +5,16 @@ function loadAudio(path, src) {
 
         var audio = new Audio();
         audio.src = audioUrl;
-        audio.type = 'audio/x-wav';
-
-        audio.addEventListener('error', function() {
-            alert('Audio error: ' + audioUrl + '; ' + JSON.stringify(audio.error));
-        });
-
-        audio.addEventListener('play', function() {
-        });
-
-        audio.addEventListener('ended', function() {
-            $('.share-container').addClass('fadeInRight'); // show the share button
-            $('#shopDiv').addClass('fadeInLeft');
-        });
-
-        audio.addEventListener('canplay', function() {
-            return audio;
-        });
+        audio.type = 'audio/mpeg';
+        audio.preload = "auto";
+        audio.load();
         return audio;
-        // audio.play();
     } else {
         alert('Sorry! Cannot play audio via HTML5 in your browser, upgrade to a new browser');
     }
 }
 function playAudio(audioInstance) {
     audioInstance.play();
-    //
-    // if ( typeof Audio != "undefined") {
-    //
-    //     var audioUrl = path + src;
-    //
-    //     var audio = new Audio();
-    //     audio.src = audioUrl;
-    //     audio.type = 'audio/x-wav';
-    //
-    //     audio.addEventListener('error', function() {
-    //         alert('Audio error: ' + audioUrl + '; ' + JSON.stringify(audio.error));
-    //     });
-    //
-    //     audio.addEventListener('play', function() {
-    //     });
-    //
-    //     audio.addEventListener('ended', function() {
-    //         $('.share-container').addClass('fadeInRight'); // show the share button
-    //         $('#shopDiv').addClass('fadeInLeft');
-    //     });
-    //
-    //     audio.addEventListener('canplay', function() {
-    //         audio.play();
-    //     });
-    //     audio.play();
-    // } else {
-    //     alert('Sorry! Cannot play audio via HTML5 in your browser, upgrade to a new browser');
-    // }
 }
 var main = function () {
   var playIcon = '\u25B6 ';
@@ -65,7 +22,7 @@ var main = function () {
   var munbeVaaElem = $('.la-anim-12');
   var shareElem = $('.share-container');
   var inProgress = false;
-  var audio = loadAudio('Media/', 'Amazon-Sample.wav');
+  var audio = loadAudio('Media/', 'Amazon-Sample.mp3');
   // http://jshanley.github.io/blip/ // For mp3
     //   blip.sampleLoader()
     //     .samples({
@@ -118,7 +75,7 @@ var main = function () {
   // DETECT TRANSITION END
   playBtn.click(function() {
     if( inProgress ) return false;
-    playAudio(audio);
+    audio.play();
     inProgress = true;
     // play the mp3
     // var samp = blip.clip().sample('samp');
