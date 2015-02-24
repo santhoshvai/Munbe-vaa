@@ -47,6 +47,7 @@ var main = function () {
   // DETECT TRANSITION END
   playBtn.click(function() {
     if( inProgress ) return false;
+    document.getElementById('audio').play();
     document.title = playIcon + document.title; // like youtube title
     inProgress = true;
     $('#playBtnDiv').addClass('flipOutX');
@@ -62,7 +63,6 @@ var main = function () {
         $('#shopDiv').addClass('fadeInLeft');
         inProgress = false;
     });
-    document.getElementById('audio').play();
     // shareElem.addClass('fadeInRight'); // show the share button
     $(".language").addClass('anim lang');
     var arr = ['one', 'two', 'three', 'four', 'five', 'six', 'seven'];
