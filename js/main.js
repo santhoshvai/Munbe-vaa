@@ -4,12 +4,6 @@ var main = function () {
   var munbeVaaElem = $('.la-anim-12');
   var shareElem = $('.share-container');
   var inProgress = false;
-  var soundID = "Amazon-Sample";
-  // load sound
-  createjs.Sound.registerSound("Media/Amazon-Sample.mp3", soundID);
-  function playSound () {
-    createjs.Sound.play(soundID);
-  }
   // https://jonsuh.com/blog/detect-the-end-of-css-animations-and-transitions-with-javascript/
   function whichAnimationEvent(){
       var t,
@@ -68,7 +62,7 @@ var main = function () {
         $('#shopDiv').addClass('fadeInLeft');
         inProgress = false;
     });
-    playSound();
+    document.getElementById('audio').play();
     // shareElem.addClass('fadeInRight'); // show the share button
     $(".language").addClass('anim lang');
     var arr = ['one', 'two', 'three', 'four', 'five', 'six', 'seven'];
