@@ -4,6 +4,13 @@ var main = function () {
   var munbeVaaElem = $('.la-anim-12');
   var shareElem = $('.share-container');
   var inProgress = false;
+  // http://jshanley.github.io/blip/ // For mp3
+      blip.sampleLoader()
+        .samples({
+        //'samp': 'Media/Amazon-Sample.mp3'
+        'samp' : 'https://cdn.rawgit.com/santhoshvai/Munbe-vaa/gh-pages/Media/Amazon-Sample.mp3'
+    })
+        .load();
   // https://jonsuh.com/blog/detect-the-end-of-css-animations-and-transitions-with-javascript/
   function whichAnimationEvent(){
       var t,
@@ -47,7 +54,11 @@ var main = function () {
   // DETECT TRANSITION END
   playBtn.click(function() {
     if( inProgress ) return false;
-    document.getElementById('audio').play();
+    // play the mp3
+    var samp = blip.clip().sample('samp');
+    samp.play(0);
+    // mp3 end
+    // document.getElementById('audio').play();
     document.title = playIcon + document.title; // like youtube title
     inProgress = true;
     $('#playBtnDiv').addClass('flipOutX');
