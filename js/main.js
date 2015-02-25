@@ -56,23 +56,23 @@ function loadAudio(path, src) {
     }
 }
 
-function onStartPlay(isMobile) {
+function onStartPlay(arr) {
     var playIcon = '\u25B6 ';
     var munbeVaaElem = $('.la-anim-12');
     document.title = playIcon + document.title; // like youtube title
     $("#playBtnDiv").fadeOut( "fast" );
     munbeVaaElem.addClass('la-animate');
-    $(".language").addClass('anim lang');
-    var arr = ['one', 'two', 'three', 'four', 'five', 'six', 'seven'];
-    for ( var i = 0; i <= 6; i+=1 ) {
-      var idx = i+1;
-      var currentVerse = $(".lyric" + idx);
-      if (isMobile) currentVerse.addClass('animMin ' + arr[i]); // just fadeIn
-      else currentVerse.addClass('anim ' + arr[i]); // fadeInUp
-     }
+    animateLyricsAfterPlay(arr);
 }
 var main = function () {
-    var isMobile = mobilecheck();
+    // var isMobile = mobilecheck();
+    var arr = [];
+
+    for ( var i = 0; i <= 6; i+=1 ) {
+      var idx = i+1;
+      arr.push( $(".lyric" + idx) ); // pushing all the lyric elements to array
+    }
+
     var audio =  new Howl({
         urls: ['http://www.santhosh.info/Munbe-vaa/Media/Amazon-Sample.mp3', 'http://www.santhosh.info/Munbe-vaa/Media/Amazon-Sample.ogg', 'http://www.santhosh.info/Munbe-vaa/Media/Amazon-Sample.wav'],
         onload: function () {
@@ -82,7 +82,7 @@ var main = function () {
         },
         onplay: function () {
             console.log('started-play!');
-            onStartPlay(isMobile);
+            onStartPlay(arr);
         },
         onend: function() {
           document.title = document.title.slice(2);

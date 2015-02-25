@@ -23,7 +23,10 @@
     }
 }
 
-.verse, .language {
+.verse {
+    opacity: 0;
+}
+.language {
 	opacity:0;  /* make things invisible upon start */
 }
 
