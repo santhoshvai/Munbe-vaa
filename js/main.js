@@ -4,7 +4,7 @@ function onStartPlay(arr, isMobile) {
     var munbeVaaElem = $('.la-anim-12');
     document.title = playIcon + document.title; // like youtube title
     $(".playBtn").fadeOut( "fast" );
-    munbeVaaElem.addClass('la-animate');
+    if(!isMobile) munbeVaaElem.addClass('la-animate');
     animateLyricsAfterPlay(arr, isMobile);
 }
 var main = function () {
