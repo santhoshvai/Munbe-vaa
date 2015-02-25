@@ -10,24 +10,16 @@
         -webkit-transform: translateY(0);
     }
 }
-@-moz-keyframes fadeInUp {
+@keyframes fadeInUp {
     0% {
         opacity: 0;
         -webkit-transform: translateY(100px);
+                transform: translateY(100px);
     }
     100% {
         opacity: 1;
         -webkit-transform: translateY(0);
-    }
-}
-@keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(100px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
+                transform: translateY(0);
     }
 }
 
@@ -36,85 +28,68 @@
 }
 
 .anim {
-  -webkit-transform-style: preserve-3d; /* http://stackoverflow.com/questions/7908493/considerations-for-css3-transition-performance */
-  -webkit-animation:fadeInUp ease 1;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
-  -moz-animation:fadeInUp ease 1;
+  -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d; /* http://stackoverflow.com/questions/7908493/considerations-for-css3-transition-performance */
+ -webkit-animation:fadeInUp ease 1;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
   animation:fadeInUp ease 1;
 
   -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
-  -moz-animation-fill-mode:forwards;
   animation-fill-mode:forwards;
 
 }
 
 .lang {
   -webkit-animation-duration:0.5s;
-  -moz-animation-duration:0.5s;
   animation-duration:0.5s;
   -webkit-animation-delay: 0.5s;
-  -moz-animation-delay: 0.5s;
   animation-delay: 0.5s;
 }
 .one {
   -webkit-animation-duration:1s;
-  -moz-animation-duration:1s;
   animation-duration:1s;
   -webkit-animation-delay: 5.6s;
-  -moz-animation-delay: 5.6s;
   animation-delay: 5.6s;
 }
 
 .two {
   -webkit-animation-duration:1.5s;
-  -moz-animation-duration:1.5s;
   animation-duration:1.5s;
 
   -webkit-animation-delay: 8.3s;
-  -moz-animation-delay:8.3s;
   animation-delay: 8.3s;
 }
 
 .three {
   -webkit-animation-duration:1s;
-  -moz-animation-duration:1s;
   animation-duration:1s;
 
   -webkit-animation-delay: 11.7s;
-  -moz-animation-delay: 11.7s;
   animation-delay: 11.7s;
 }
 
 .four {
   -webkit-animation-duration:1.5s;
-  -moz-animation-duration:1.5s;
   animation-duration:1.5s;
   -webkit-animation-delay: 15.5s;
-  -moz-animation-delay: 15.5s;
   animation-delay: 15.5s;
 }
 
 .five {
     -webkit-animation-duration:2s;
-    -moz-animation-duration:2s;
     animation-duration:2s;
   -webkit-animation-delay: 18.5s;
-  -moz-animation-delay: 18.5s;
   animation-delay: 18.5s;
 }
 .six {
     -webkit-animation-duration:1.5s;
-    -moz-animation-duration:1.5s;
     animation-duration:1.5s;
   -webkit-animation-delay: 26.1s;
-  -moz-animation-delay: 26.1s;
   animation-delay: 26.1s;
 }
 .seven {
     -webkit-animation-duration:1.5s;
-    -moz-animation-duration:1.5s;
     animation-duration:1.5s;
   -webkit-animation-delay: 30s;
-  -moz-animation-delay: 30s;
   animation-delay: 30s;
 }
 
@@ -132,11 +107,13 @@
 @keyframes fadeInRight {
     0% {
         opacity: 0;
-        transform: translateX(50px);
+        -webkit-transform: translateX(50px);
+                transform: translateX(50px);
     }
     100% {
         opacity: 1;
-        transform: translateX(0);
+        -webkit-transform: translateX(0);
+                transform: translateX(0);
     }
 }
 @-webkit-keyframes fadeInLeft {
@@ -152,15 +129,18 @@
 @keyframes fadeInLeft {
     0% {
         opacity: 0;
-        transform: translateX(-50px);
+        -webkit-transform: translateX(-50px);
+                transform: translateX(-50px);
     }
     100% {
         opacity: 1;
-        transform: translateX(0);
+        -webkit-transform: translateX(0);
+                transform: translateX(0);
     }
 }
 .fadeInRight {
-    -webkit-transform-style: preserve-3d; /* http://stackoverflow.com/questions/7908493/considerations-for-css3-transition-performance */
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d; /* http://stackoverflow.com/questions/7908493/considerations-for-css3-transition-performance */
     -webkit-animation-duration: 1s;
     animation-duration: 1s;
     -webkit-animation-fill-mode: both;
@@ -169,7 +149,8 @@
     animation-name: fadeInRight;
 }
 .fadeInLeft {
-    -webkit-transform-style: preserve-3d; /* http://stackoverflow.com/questions/7908493/considerations-for-css3-transition-performance */
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d; /* http://stackoverflow.com/questions/7908493/considerations-for-css3-transition-performance */
     -webkit-animation-duration: 1s;
     animation-duration: 1s;
     -webkit-animation-fill-mode: both;
@@ -189,22 +170,27 @@
 }
 @keyframes flipOutX {
     0% {
-        transform: perspective(400px) rotateX(0deg);
+        -webkit-transform: perspective(400px) rotateX(0deg);
+                transform: perspective(400px) rotateX(0deg);
         opacity: 1;
     }
     100% {
-        transform: perspective(400px) rotateX(90deg);
+        -webkit-transform: perspective(400px) rotateX(90deg);
+                transform: perspective(400px) rotateX(90deg);
         opacity: 0;
     }
 }
 .flipOutX {
-    -webkit-transform-style: preserve-3d; /* http://stackoverflow.com/questions/7908493/considerations-for-css3-transition-performance */
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d; /* http://stackoverflow.com/questions/7908493/considerations-for-css3-transition-performance */
     -webkit-animation-duration: 1s;
     animation-duration: 1s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
     webkit-animation-name: flipOutX;
     -webkit-backface-visibility: visible !important;
-    animation-name: flipOutX;
-    backface-visibility: visible !important;
+    -webkit-animation-name: flipOutX;
+            animation-name: flipOutX;
+    -webkit-backface-visibility: visible !important;
+            backface-visibility: visible !important;
 }

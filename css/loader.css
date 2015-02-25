@@ -12,6 +12,7 @@
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
   border-radius: 2px;
+  transform-style: preserve-3d;
   -webkit-transform-style: preserve-3d; /* http://stackoverflow.com/questions/7908493/considerations-for-css3-transition-performance */
   -moz-animation: wormsPong cubic-bezier(0.77, 0, 0.175, 1) 0.8s infinite;
   -webkit-animation: wormsPong cubic-bezier(0.77, 0, 0.175, 1) 0.8s infinite;
@@ -83,6 +84,8 @@
   position: absolute;
   top: 50%;
   left: 50%;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d; /* http://stackoverflow.com/questions/7908493/considerations-for-css3-transition-performance */
   -moz-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);

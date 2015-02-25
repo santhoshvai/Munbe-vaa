@@ -1,8 +1,13 @@
 *,
 *:after,
 *::before { /* http://css-tricks.com/international-box-sizing-awareness-day/ */
-	-webkit-box-sizing: border-box;
+	/* Chrome 9-, Safari 5-, iOS 4.2-, Android 3-, Blackberry 7- */
+  -webkit-box-sizing: border-box;
+
+  /* Firefox (desktop or Android) 28- */
   -moz-box-sizing: border-box;
+
+  /* Firefox 29+, IE 8+, Chrome 10+, Safari 5.1+, Opera 9.5+, iOS 5+, Opera Mini Anything, Blackberry 10+, Android 4+ */
   box-sizing: border-box;
 }
 
@@ -63,10 +68,9 @@ a:focus {
 	position: absolute;
   	top: 50%;
   	left: 50%;
-	-moz-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+ -ms-transform: translate(-50%, -50%);
+ -webkit-transform: translate(-50%, -50%);
+ transform: translate(-50%, -50%);
 }
 #shopDiv {
 	opacity: 0;
@@ -172,7 +176,10 @@ div.english {
 
 .la-anim-12.la-animate::before {
   width: 100%;
-  transition: width 31s linear;
+          transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d; /* http://stackoverflow.com/questions/7908493/considerations-for-css3-transition-performance */
+  -webkit-transition: width 31s linear;
+          transition: width 31s linear;
 }
 
 .share-container {
