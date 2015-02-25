@@ -68,10 +68,11 @@ function onStartPlay() {
      }
 }
 var main = function () {
-    $('.loader').hide();
+
     var audio =  new Howl({
         urls: ['Media/Amazon-Sample.mp3', 'Media/Amazon-Sample.ogg', 'Media/Amazon-Sample.wav'],
         onload: function () {
+            $('.loading').hide();
             $( "#playBtnDiv" ).fadeIn( "slow" );
             console.log('loaded-Music!');
         },
