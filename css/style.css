@@ -57,6 +57,9 @@ a:focus {
 .playBtn:hover {
 	background: #2c3e52;
 }
+#playBtnDiv {
+	display: none;
+}
 #shopDiv {
 	opacity: 0;
 }
