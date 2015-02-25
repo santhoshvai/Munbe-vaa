@@ -1,20 +1,14 @@
-$.Velocity.Sequences.fadeInU = function(element, options){
-  var duration = options.duration || 800;
-  var delay =  options.delay || 1000;
-  $.Velocity.animate(element, {translateY: [0, 100], opacity: [1, 0]}, {
-    duration: duration,
-    delay: delay
-  });
+function velocityFadeInUp(elem, delayV, durationV) {
+    elem.velocity({translateY: [0, 100], opacity: [1, 0]}, { delay: delayV, duration: durationV });
 }
 
-function animateLyricsAfterPlay(arr) {
-
+function animateLyricsAfterPlay(arr, isMobile) {
     $(".language").velocity({ opacity: 1}, "slow");
-    arr[0].velocity({translateY: [0, 100], opacity: [1, 0]}, { delay: 5600, duration: 1000 });
-    arr[1].velocity({translateY: [0, 100], opacity: [1, 0]}, { delay: 8300, duration: 1000 });
-    arr[2].velocity({translateY: [0, 100], opacity: [1, 0]}, { delay: 11700, duration: 1000 });
-    arr[3].velocity({translateY: [0, 100], opacity: [1, 0]}, { delay: 15500, duration: 1000 });
-    arr[4].velocity({translateY: [0, 100], opacity: [1, 0]}, { delay: 18500, duration: 1000 });
-    arr[5].velocity({translateY: [0, 100], opacity: [1, 0]}, { delay: 26100, duration: 1000 });
-    arr[6].velocity({translateY: [0, 100], opacity: [1, 0]}, { delay: 30000, duration: 1000 });
+    velocityFadeInUp(arr[0], 5600, 1000);
+    velocityFadeInUp(arr[1], 8300, 1000);
+    velocityFadeInUp(arr[2], 11700, 1000);
+    velocityFadeInUp(arr[3], 15500, 1000);
+    velocityFadeInUp(arr[4], 18500, 1000);
+    velocityFadeInUp(arr[5], 26100, 1000);
+    velocityFadeInUp(arr[6], 30000, 1000);
 }

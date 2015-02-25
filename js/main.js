@@ -4,68 +4,16 @@ function mobilecheck() {
   return check;
 }
 
-function whichAnimationEvent(){
-    var t,
-        el = document.createElement("fakeelement");
-
-    var animations = {
-      "animation"      : "animationend",
-      "OAnimation"     : "oAnimationEnd",
-      "MozAnimation"   : "animationend",
-      "WebkitAnimation": "webkitAnimationEnd"
-    }
-
-    for (t in animations){
-      if (el.style[t] !== undefined){
-        return animations[t];
-      }
-    }
-  }
-
-function whichTransitionEvent(){
-    var t,
-        el = document.createElement("fakeelement");
-
-    var transitions = {
-      "transition"      : "transitionend",
-      "OTransition"     : "oTransitionEnd",
-      "MozTransition"   : "transitionend",
-      "WebkitTransition": "webkitTransitionEnd"
-    }
-
-    for (t in transitions){
-      if (el.style[t] !== undefined){
-        return transitions[t];
-      }
-    }
-  }
-
-function loadAudio(path, src) {
-    if ( typeof Audio != "undefined") {
-
-        var audioUrl = path + src;
-
-        var audio = new Audio();
-        audio.src = audioUrl;
-        audio.type = 'audio/mpeg';
-        audio.preload = "auto";
-        audio.load();
-        return audio;
-    } else {
-        alert('Sorry! Cannot play audio via HTML5 in your browser, upgrade to a new browser');
-    }
-}
-
-function onStartPlay(arr) {
+function onStartPlay(arr, isMobile) {
     var playIcon = '\u25B6 ';
     var munbeVaaElem = $('.la-anim-12');
     document.title = playIcon + document.title; // like youtube title
-    $("#playBtnDiv").fadeOut( "fast" );
+    $(".playBtn").fadeOut( "fast" );
     munbeVaaElem.addClass('la-animate');
-    animateLyricsAfterPlay(arr);
+    animateLyricsAfterPlay(arr, isMobile);
 }
 var main = function () {
-    // var isMobile = mobilecheck();
+    var isMobile = mobilecheck();
     var arr = [];
 
     for ( var i = 0; i <= 6; i+=1 ) {
@@ -74,31 +22,26 @@ var main = function () {
     }
 
     var audio =  new Howl({
-        urls: ['http://www.santhosh.info/Munbe-vaa/Media/Amazon-Sample.mp3', 'http://www.santhosh.info/Munbe-vaa/Media/Amazon-Sample.ogg', 'http://www.santhosh.info/Munbe-vaa/Media/Amazon-Sample.wav'],
+        urls: ['https://cdn.rawgit.com/santhoshvai/Munbe-vaa/gh-pages/Media/Amazon-Sample.mp3',
+         'https://cdn.rawgit.com/santhoshvai/Munbe-vaa/gh-pages/Media/Amazon-Sample.ogg',
+          'https://cdn.rawgit.com/santhoshvai/Munbe-vaa/gh-pages/Media/Amazon-Sample.wav'],
         onload: function () {
             $('.loading').hide();
-            $( "#playBtnDiv" ).fadeIn( "slow" );
+            $( ".playBtn" ).fadeIn( "slow" );
             console.log('loaded-Music!');
         },
         onplay: function () {
             console.log('started-play!');
-            onStartPlay(arr);
+            onStartPlay(arr, isMobile);
         },
         onend: function() {
           document.title = document.title.slice(2);
-          $('.share-container').addClass('fadeInRight'); // show the share button
+          if(!isMobile) $('.share-container').addClass('fadeInRight'); // show the share button
           $('#shopDiv').addClass('fadeInLeft');
           console.log('Finished!');
         }
       });
   var playBtn  = $('.playBtn');
-
-  // var audio = loadAudio('Media/', 'Amazon-Sample.mp3');
-
-  // https://jonsuh.com/blog/detect-the-end-of-css-animations-and-transitions-with-javascript/
-    var animationEvent = whichAnimationEvent();
-    var transitionEvent = whichTransitionEvent();
-  // DETECT TRANSITION END
 
   playBtn.click(function() {
     audio.play();
