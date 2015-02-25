@@ -185,8 +185,8 @@ div.english {
   width: 100%;
           transform-style: preserve-3d;
   -webkit-transform-style: preserve-3d; /* http://stackoverflow.com/questions/7908493/considerations-for-css3-transition-performance */
-  -webkit-transition: width 31s linear;
-          transition: width 31s linear;
+  -webkit-transition: width 30069ms linear;
+          transition: width 30069ms linear;
 }
 
 /*social share*/

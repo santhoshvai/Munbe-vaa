@@ -32,13 +32,13 @@ var main = function () {
         },
         onplay: function () {
             console.log('started-play!');
+            millisecondsPlay = new Date().getTime();
             onStartPlay(arr, isMobile);
         },
-        onend: function() {
+        onend: function() { // 30069 ms
           document.title = document.title.slice(2);
           if(!isMobile) $('.share-container').addClass('fadeInRight'); // show the share button
           $('#shopDiv').addClass('fadeInLeft');
-          console.log('Finished!');
         }
       });
   var playBtn  = $('.playBtn');
