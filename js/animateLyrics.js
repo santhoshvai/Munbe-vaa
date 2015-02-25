@@ -2,8 +2,7 @@ function velocityFadeInUp(elem, delayV, durationV) {
     elem.velocity({translateY: [0, 100], opacity: [1, 0]}, { delay: delayV, duration: durationV });
 }
 function velocityFade(elem, delayV, durationV) {
-    elem.velocity({ opacity: [1, 0] }, { delay: delayV, duration: durationV });
-}
+    elem.velocity({ opacity: [0, 1] }, { delay: delayV, duration: durationV });
 }
 function animateLyricsAfterPlay(arr, isMobile) {
     $(".language").velocity({ opacity: 1}, "slow");
