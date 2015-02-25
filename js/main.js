@@ -54,16 +54,13 @@ function onStartPlay() {
     var playIcon = '\u25B6 ';
     var munbeVaaElem = $('.la-anim-12');
     document.title = playIcon + document.title; // like youtube title
-    // $('#playBtnDiv').addClass('flipOutX');
-    $("#playBtnDiv").fadeOut( "fast" ); // incase the before the animation fails
+    $("#playBtnDiv").fadeOut( "fast" );
     munbeVaaElem.addClass('la-animate');
     $(".language").addClass('anim lang');
     var arr = ['one', 'two', 'three', 'four', 'five', 'six', 'seven'];
     for ( var i = 0; i <= 6; i+=1 ) {
       var idx = i+1;
-      var nxtIdx = i+2;
       var currentVerse = $(".lyric" + idx);
-      var nextVerse = $(".lyric" + nxtIdx);
       currentVerse.addClass('anim ' + arr[i]);
      }
 }
