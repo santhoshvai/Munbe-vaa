@@ -194,3 +194,21 @@
     -webkit-backface-visibility: visible !important;
             backface-visibility: visible !important;
 }
+
+@-webkit-keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+.animMin {
+    /*-webkit-animation-duration: 1s;
+    animation-duration: 1s;*/
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+}
