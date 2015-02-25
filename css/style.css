@@ -59,6 +59,11 @@ a:focus {
 }
 #playBtnDiv {
 	display: none;
+	/* centre of screen */
+	position: absolute;
+  	top: 50%;
+  	left: 50%;
+	transform: translate(-50%, -50%);
 }
 #shopDiv {
 	opacity: 0;
@@ -116,10 +121,7 @@ div.english {
 	color: #fff;
 	display: none;
 }
-#playBtnDiv {
-	position: relative;
-	opacity: 1;
-}
+
 /* Small-Tablets */
 /*@media (min-width: 35.5em) {
 
@@ -127,11 +129,12 @@ div.english {
 /* Tablets and above */
 @media (min-width: 48em) {
 	header {
-			line-height: 5em;
+			line-height: 3em;
 	}
   .column-half {
       width: 33%;
       float: left;
+	  margin-top: 0.1em;
       margin-bottom: 1.5em;
   }
 	div.english, div.native {

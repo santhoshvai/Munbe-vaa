@@ -54,7 +54,7 @@ function onStartPlay() {
     var playIcon = '\u25B6 ';
     var munbeVaaElem = $('.la-anim-12');
     document.title = playIcon + document.title; // like youtube title
-    $('#playBtnDiv').addClass('flipOutX');
+    // $('#playBtnDiv').addClass('flipOutX');
     $("#playBtnDiv").fadeOut( "fast" ); // incase the before the animation fails
     munbeVaaElem.addClass('la-animate');
     $(".language").addClass('anim lang');
@@ -70,7 +70,7 @@ function onStartPlay() {
 var main = function () {
 
     var audio =  new Howl({
-        urls: ['Media/Amazon-Sample.mp3', 'Media/Amazon-Sample.ogg', 'Media/Amazon-Sample.wav'],
+        urls: ['http://www.santhosh.info/Munbe-vaa/Media/Amazon-Sample.mp3', 'http://www.santhosh.info/Munbe-vaa/Media/Amazon-Sample.ogg', 'http://www.santhosh.info/Munbe-vaa/Media/Amazon-Sample.wav'],
         onload: function () {
             $('.loading').hide();
             $( "#playBtnDiv" ).fadeIn( "slow" );
