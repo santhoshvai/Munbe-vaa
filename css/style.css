@@ -1,6 +1,7 @@
 *,
 *:after,
-*::before { /* http://css-tricks.com/international-box-sizing-awareness-day/ */
+*::before {
+    /* http://css-tricks.com/international-box-sizing-awareness-day/ */
 	/* Chrome 9-, Safari 5-, iOS 4.2-, Android 3-, Blackberry 7- */
   -webkit-box-sizing: border-box;
 
