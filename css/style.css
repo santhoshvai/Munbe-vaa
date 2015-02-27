@@ -137,12 +137,13 @@ div.english {
 	display: none;
 }
 
+/* https://css-tricks.com/snippets/css/media-queries-for-standard-devices/ */
 /* Small-Tablets */
 /*@media (min-width: 35.5em) {
 
 }*/
 /* Tablets and above */
-@media (min-width: 48em) {
+/*@media (min-width: 48em) {
 	header {
 			line-height: 3em;
 	}
@@ -161,9 +162,118 @@ div.english {
   .column-half ul.tamil {
       margin-left: 0px;
   }
+}*/
+/* Smartphones (landscape) ----------- */
+@media only screen
+and (min-width : 321px) {
+    header {
+        line-height: 2em;
+    }
+    .column-half {
+      width: 50%;
+      float: left;
+      margin-top: 0.1em;
+      margin-bottom: 1.5em;
+    }
+    div.native {
+        display: inline-block;
+    }
+    .column-half ul.tamil {
+      margin-left: 1px;
+    }
+    h2.language {
+		display: inline-block;
+	}
+    #translation { display: none;}
+    .container {
+      position: relative;
+      overflow-y: scroll; // allow scrolling here, http://stackoverflow.com/questions/9280258/prevent-body-scrolling-but-allow-overlay-scrolling
+    }
+}
+/* iPads (portrait) ----------- */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : portrait) {
+    /* Styles */
+    header {
+        line-height: 3em;
+    }
+    .column-half {
+      width: 50%;
+      float: left;
+      margin-top: 0.1em;
+      margin-bottom: 1.5em;
+    }
+    h2.language {
+		display: inline-block;
+	}
+    #translation { display: none;}
+    div.native {
+        display: inline-block;
+    }
+    .column-half ul.tamil {
+      margin-left: 1px;
+    }
+}
+/* iPads (landscape) ----------- */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : landscape) {
+    header {
+        line-height: 2em;
+    }
+    .column-half {
+      width: 33%;
+      float: left;
+      margin-top: 0.1em;
+      margin-bottom: 1.5em;
+    }
+    #translation { display: inline-block;}
+    div.english, div.native {
+        display: inline-block;
+    }
+    h2.language {
+        display: inline-block;
+    }
+    .column-half ul.tamil {
+      margin-left: 1px;
+    }
+    .container {
+      width: 100%;
+      overflow: scroll;
+      }
 }
 
-
+/* Desktops and laptops ----------- */
+@media only screen
+and (min-width : 1224px) {
+    header {
+        line-height: 3em;
+    }
+    .column-half {
+      width: 33%;
+      float: left;
+      margin-top: 0.1em;
+      margin-bottom: 1.5em;
+    }
+    div.english, div.native {
+        display: inline-block;
+    }
+    h2.language {
+        display: inline-block;
+    }
+    #translation { display: inline-block;}
+    .column-half ul.tamil {
+      margin-left: 0px;
+    }
+    .container {
+      width: 90%;
+      position: relative;
+      overflow: hidden; // allow scrolling here, http://stackoverflow.com/questions/9280258/prevent-body-scrolling-but-allow-overlay-scrolling
+    }
+}
 /* Effect 12: Letter fill */
 .la-anim-12 {
 	position: relative;
