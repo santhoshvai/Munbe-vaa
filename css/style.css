@@ -217,7 +217,6 @@ and (orientation : portrait) {
     }
     .container {
       width: 100%;
-      overflow: hidden;
      }
      .playBtn{
          font-size: 120%;
@@ -249,7 +248,6 @@ and (orientation : landscape) {
     }
     .container {
       width: 100%;
-      overflow: hidden;
      }
      .playBtn{
          font-size: 120%;
