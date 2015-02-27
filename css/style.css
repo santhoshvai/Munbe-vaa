@@ -215,6 +215,13 @@ and (orientation : portrait) {
     .column-half ul.tamil {
       margin-left: 1px;
     }
+    .container {
+      width: 100%;
+      overflow: hidden;
+     }
+     .playBtn{
+         font-size: 120%;
+     }
 }
 /* iPads (landscape) ----------- */
 @media only screen
@@ -242,8 +249,11 @@ and (orientation : landscape) {
     }
     .container {
       width: 100%;
-      overflow: scroll;
-      }
+      overflow: hidden;
+     }
+     .playBtn{
+         font-size: 120%;
+     }
 }
 
 /* Desktops and laptops ----------- */
@@ -272,6 +282,9 @@ and (min-width : 1224px) {
       width: 90%;
       position: relative;
       overflow: hidden; // allow scrolling here, http://stackoverflow.com/questions/9280258/prevent-body-scrolling-but-allow-overlay-scrolling
+    }
+    .playBtn{
+        font-size: 140%;
     }
 }
 /* Effect 12: Letter fill */
