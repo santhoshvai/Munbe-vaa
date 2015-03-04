@@ -191,7 +191,6 @@ and (min-width : 321px) {
     #translation { display: none;}
     .container {
       position: relative;
-      overflow-y: scroll; // allow scrolling here, http://stackoverflow.com/questions/9280258/prevent-body-scrolling-but-allow-overlay-scrolling
     }
 }
 /* iPads (portrait) ----------- */
