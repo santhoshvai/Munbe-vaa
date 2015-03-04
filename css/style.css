@@ -17,8 +17,13 @@ body {
 	color: #EAD075;
 	text-align: center;
 	background-color: #47374E;
-	font-family: 'Helvetica Neue', 'Droid Sans', 'Segoe UI', Arial, sans-serif;
-    overflow: hidden; /* body not scrollable */
+	font-family: Avenir, 'Helvetica Neue', 'Droid Sans', 'Segoe UI', Arial, sans-serif;
+    /* overflow: hidden;  */ 
+    /* make all text unselectable */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 header {
     text-align: center;
@@ -44,23 +49,30 @@ a:focus {
 }
 .container {
   width: 95%;
+  letter-spacing: 0.0625em;
   max-width: 75em;
   margin: 0 auto;
   position: relative;
   overflow-y: scroll; // allow scrolling here, http://stackoverflow.com/questions/9280258/prevent-body-scrolling-but-allow-overlay-scrolling
 }
-
+.one-edge-shadow {
+	-webkit-box-shadow: 0 8px 6px -6px black;
+	   -moz-box-shadow: 0 8px 6px -6px black;
+	        box-shadow: 0 8px 6px -6px black;
+}
 .playBtn {
     z-index: 999;
+    letter-spacing: 0.2em;
+    font-weight: 700;
 	border: none;
     display: none;
 	padding: 0.6em 1.2em;
-	background: #ed4e6e;
+	background: #6d48cc;
 	color: #fff;
 	font-size: 1em;
-	letter-spacing: 1px;
 	text-transform: uppercase;
 	cursor: pointer;
+    text-align: center;
 	margin: 3px 2px;
 	border-radius: 2px;
     /* http://css-tricks.com/centering-css-complete-guide/*/
@@ -70,6 +82,9 @@ a:focus {
     -ms-transform: translate(-50%, -50%);
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+    /* http://maximilianhoffmann.com/posts/better-font-rendering-on-osx */
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
 }
 .playBtn:hover {
 	background: #2c3e52;
@@ -82,14 +97,30 @@ a:focus {
 }
 #shopDiv {
 	opacity: 0;
+    width: 100%;
+    text-align:center;
+    padding-bottom: 1em;
+}
+#shopDiv a {
+    display:inline-block;
+    padding: 1em;
+    margin: 1em;
+    overflow:hidden;
+    width:110px;
+    height:40px;
+}
+#amazonShop {
+    background:url(/Media/shopAmazon.png) no-repeat;
+}
+#itunesShop {
+    background:url(https://linkmaker.itunes.apple.com/htmlResources/assets/en_us//images/web/linkmaker/badge_itunes-lrg.png) no-repeat;
 }
 #shoppingBtn {
 	border: none;
-	/*padding: 0.6em 1.2em;*/
-	background: #2c3e52;
-	color: #E8DFDF;
-
-	/*font-size: 1em;*/
+	padding: 0.6em 1.2em;
+	background: #6d48cc;
+    color: #fff;
+	font-size: 1.5em;
 	/*letter-spacing: 1px;*/
 	/*text-transform: uppercase;*/
 	cursor: pointer;
@@ -99,7 +130,6 @@ a:focus {
 }
 #shoppingBtn:hover {
 	background: #28384A;
-	color: #fff;
 }
 #sample-lyrics {
 	padding: 0;
@@ -136,33 +166,6 @@ div.english {
 	color: #fff;
 	display: none;
 }
-
-/* https://css-tricks.com/snippets/css/media-queries-for-standard-devices/ */
-/* Small-Tablets */
-/*@media (min-width: 35.5em) {
-
-}*/
-/* Tablets and above */
-/*@media (min-width: 48em) {
-	header {
-			line-height: 3em;
-	}
-  .column-half {
-      width: 33%;
-      float: left;
-	  margin-top: 0.1em;
-      margin-bottom: 1.5em;
-  }
-	div.english, div.native {
-		display: inline-block;
-	}
-	h2.language {
-		display: inline-block;
-	}
-  .column-half ul.tamil {
-      margin-left: 0px;
-  }
-}*/
 /* Smartphones (landscape) ----------- */
 @media only screen
 and (min-width : 321px) {
@@ -279,8 +282,7 @@ and (min-width : 1224px) {
     .container {
       width: 90%;
       position: relative;
-      overflow: hidden; // allow scrolling here, http://stackoverflow.com/questions/9280258/prevent-body-scrolling-but-allow-overlay-scrolling
-    }
+      }
     .playBtn{
         font-size: 140%;
     }
@@ -292,7 +294,22 @@ and (min-width : 1224px) {
   padding-right: 1rem;
 	color: rgba(255,255,255,0.6);
 }
-
+/* Desktops and laptops ----------- */
+@media only screen
+and (min-width : 1224px) {
+    .la-anim-12 {
+        font-size: 2.5em;
+    }
+}
+/* iPads (landscape) ----------- */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : landscape) {
+    .la-anim-12 {
+        font-size: 2.2em;
+    }
+}
 .la-anim-12::before {
 	position: absolute;
 	overflow: hidden;
@@ -314,7 +331,7 @@ and (min-width : 1224px) {
 /*social share*/
 .share-container {
 	position: relative;
-	padding: 0 0 2;
+	padding: 1rem;
 }
 @media screen and (max-width: 320px) {
 	.share-container {
