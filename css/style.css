@@ -18,7 +18,7 @@ body {
 	text-align: center;
 	background-color: #47374E;
 	font-family: Avenir, 'Helvetica Neue', 'Droid Sans', 'Segoe UI', Arial, sans-serif;
-    /* overflow: hidden;  */ 
+    /* overflow: hidden;  */
     /* make all text unselectable */
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -53,8 +53,8 @@ a:focus {
   max-width: 75em;
   margin: 0 auto;
   position: relative;
-  overflow-y: scroll; // allow scrolling here, http://stackoverflow.com/questions/9280258/prevent-body-scrolling-but-allow-overlay-scrolling
 }
+
 .one-edge-shadow {
 	-webkit-box-shadow: 0 8px 6px -6px black;
 	   -moz-box-shadow: 0 8px 6px -6px black;
@@ -110,7 +110,8 @@ a:focus {
     height:40px;
 }
 #amazonShop {
-    background:url(/Media/shopAmazon.png) no-repeat;
+    background:url(https://raw.githubusercontent.com/santhoshvai/Munbe-vaa/gh-pages/Media/shopAmazon.png) no-repeat;
+    /* https://cdn.rawgit.com/santhoshvai/Munbe-vaa/gh-pages/Media/shopAmazon.png */
 }
 #itunesShop {
     background:url(https://linkmaker.itunes.apple.com/htmlResources/assets/en_us//images/web/linkmaker/badge_itunes-lrg.png) no-repeat;
