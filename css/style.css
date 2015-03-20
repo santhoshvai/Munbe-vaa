@@ -336,8 +336,11 @@ and (orientation : landscape) {
 @media screen and (max-width: 320px) {
 	.share-container {
         display: none; /* no need of share buttons on mobile web */
-		padding: 0 0 12px
 	}
+    #shopDiv {
+        display: none; /*no need of shopping buttons */
+    }
+
 }
 
 
@@ -352,7 +355,7 @@ footer {
 		/*border-top: 1px solid #eee;*/
 		bottom: 0;
 		padding:0.1em;
-		position: relative;
+		position: absolute;
 	}
 .share-container {
 	opacity:0;  /* make things invisible upon start */
